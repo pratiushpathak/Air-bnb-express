@@ -8,6 +8,8 @@ const express = require('express');
 const userRouter=require('./routes/userrouter')
 const hostRouter=require('./routes/hostrouter')
 
+const rootDir=require("./utils/pathutil");
+
 const app= express();
 
 
@@ -16,7 +18,7 @@ app.use(userRouter);
 app.use("/host",hostRouter);
 
 app.use((req,res,next)=>{
-res.sendFile(path.join(__dirname,'views','404.html'))
+res.sendFile(path.join(rootDir,'views','404.html'))
 })
 
 

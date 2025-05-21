@@ -3,11 +3,12 @@ const path=require('path');
 //external module
 const express= require('express')
 const hostRouter=express.Router();
+const rootDir=require("../utils/pathutil");
 
 
 hostRouter.get("/add-home",(req,res,next)=>{
 
-  res.sendFile(path.join(__dirname,"../","views","addhome.html"))
+  res.sendFile(path.join(rootDir,"views","addhome.html"))
     
 })
 
@@ -15,7 +16,7 @@ hostRouter.get("/add-home",(req,res,next)=>{
 
 hostRouter.post("/add-home",(req,res,next)=>{
   
-   res.sendFile(path.join(__dirname,"../","views","homeadded.html"))
+   res.sendFile(path.join(rootDir,"views","homeadded.html"))
     
 })
 
