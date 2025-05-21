@@ -1,3 +1,6 @@
+//core module
+const path=require('path')
+
 // external module
 const express = require('express');
 
@@ -13,7 +16,7 @@ app.use(userRouter);
 app.use("/host",hostRouter);
 
 app.use((req,res,next)=>{
-res.status(404).send("<h1>404 Your page is not found on airbnb   </h1>");
+res.sendFile(path.join(__dirname,'views','404.html'))
 })
 
 
