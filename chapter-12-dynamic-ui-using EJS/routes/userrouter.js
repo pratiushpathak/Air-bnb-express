@@ -4,7 +4,7 @@ const path=require('path');
 const express= require('express');
 const userRouter=express.Router();
 //local module
-const rootDir=require("../utils/pathutil");
+// const rootDir=require("../utils/pathutil");
 
 const {hostRouter, registeredHomes}=require('./hostrouter')
 
@@ -13,7 +13,9 @@ const {hostRouter, registeredHomes}=require('./hostrouter')
 userRouter.get("/",(req,res,next)=>{
   console.log(registeredHomes);
 
-  res.sendFile(path.join(rootDir,"views","home.html"))
+   res.render('home',{registeredHomes:registeredHomes})
+
+  // res.sendFile(path.join(rootDir,"views","home.html"))
 })
 
 

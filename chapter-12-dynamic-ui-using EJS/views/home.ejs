@@ -26,9 +26,19 @@
   </header>
 
   <main class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 max-w-xl">
-    <h2 class="text-2xl text-gray-800 font-bold text-center mb-6">
-      Welcome to Airbnb
-    </h2>
+  <h2 class="text-2xl text-gray-800 font-bold text-center mb-6">
+    Here are our Registered homes:
+  </h2>
+  <ul class="space-y-4">
+    <% registeredHomes.forEach((home) => { %>
+      <li class="bg-gray-100 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
+        <span class="text-gray-700 font-medium"><%= home.housename %></span>
+      </li>
+    <% }) %>
+  </ul>
+</main>
+      
+    </ul>
   </main>
 </body>
 
