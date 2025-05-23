@@ -11,6 +11,9 @@ const {hostRouter}=require('./routes/hostrouter')
 const rootDir=require("./utils/pathutil");
 
 const app= express();
+//ejs setup
+app.set('view engine','ejs');
+app.set('views','views');
 
 
 app.use(express.urlencoded());
