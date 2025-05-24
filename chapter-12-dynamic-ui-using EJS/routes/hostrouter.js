@@ -23,7 +23,7 @@ hostRouter.post("/add-home",(req,res,next)=>{
   console.log("home registration succeful for :", req.body.housename,req.body)
   
 
-  registeredHomes.push({housename:req.body.housename,price:req.body.price ,location:req.body.location});
+  registeredHomes.push(req.body);
   // price.push()
 
 

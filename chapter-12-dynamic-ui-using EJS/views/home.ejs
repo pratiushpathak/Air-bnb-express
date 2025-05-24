@@ -9,17 +9,29 @@
   <h2 class="text-2xl text-gray-800 font-bold text-center mb-6">
     Here are our Registered homes:
   </h2>
- <ul class="space-y-4">
+<ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
   <% registeredHomes.forEach((home) => { %>
-    <li class="bg-gray-100 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
-      <span class="text-gray-700 font-medium">
-        Price for one night: $<%= home.price %> — House: <%= home.housename %>
-        location: <%= home.location %>
-        <img src="" alt="">
-      </span>
+    <li class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 transition hover:shadow-xl">
+      <img src="<%= home.image %>" alt="<%= home.housename %>" class="w-full h-48 object-cover" />
+      
+      <div class="p-5 space-y-2">
+        <h3 class="text-xl font-semibold text-gray-800">
+          ✅ Home registration successful for: <%= home.housename %>
+        </h3>
+        <p class="text-gray-600">
+          <strong>Price:</strong> $<%= home.price %> / night
+        </p>
+        <p class="text-gray-600">
+          <strong>Location:</strong> <%= home.location %>
+        </p>
+        <p class="text-yellow-500 font-medium">
+          ⭐ Rating: <%= home.rating %>/5
+        </p>
+      </div>
     </li>
   <% }) %>
 </ul>
+
 
 
   
