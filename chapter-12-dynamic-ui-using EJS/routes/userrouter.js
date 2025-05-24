@@ -6,14 +6,17 @@ const userRouter=express.Router();
 //local module
 // const rootDir=require("../utils/pathutil");
 
-const {hostRouter, registeredHomes}=require('./hostrouter')
+const {hostRouter, registeredHomes,price}=require('./hostrouter')
 
 
 
 userRouter.get("/",(req,res,next)=>{
   console.log(registeredHomes);
 
-   res.render('home',{registeredHomes:registeredHomes})
+  // the variable we define renders here
+   res.render('home',{registeredHomes:registeredHomes,
+    pageTitle:'airbnb home'})
+
 
   // res.sendFile(path.join(rootDir,"views","home.html"))
 })

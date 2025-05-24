@@ -8,21 +8,31 @@ const rootDir=require("../utils/pathutil");
 
 hostRouter.get("/add-home",(req,res,next)=>{
 
-  res.sendFile(path.join(rootDir,"views","addhome.html"))
+   res.render('addhome',{pageTitle:'Add Home to Airbnb'})
+  // res.sendFile(path.join(rootDir,"views","addhome.html"))
     
 })
 
 const registeredHomes=[];
+// const price=[];
+
+
 
 
 hostRouter.post("/add-home",(req,res,next)=>{
-  console.log("home registration succeful for :", req.body.housename)
+  console.log("home registration succeful for :", req.body.housename,req.body)
   
-  registeredHomes.push({housename:req.body.housename});
 
-   res.sendFile(path.join(rootDir,"views","homeadded.html"))
+  registeredHomes.push({housename:req.body.housename,price:req.body.price ,location:req.body.location});
+  // price.push()
+
+
+
+   res.render('homeadded',{pageTitle:'Home added succesfully'})
+  //  res.sendFile(path.join(rootDir,"views","homeadded.html"))
     
 })
 
 exports.hostRouter=hostRouter;
 exports.registeredHomes=registeredHomes;
+// exports.price=price;
