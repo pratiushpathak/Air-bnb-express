@@ -15,7 +15,7 @@ userRouter.get("/",(req,res,next)=>{
 
   // the variable we define renders here
    res.render('home',{registeredHomes:registeredHomes,
-    pageTitle:'airbnb home'})
+    pageTitle:'airbnb home',currentpage:'home'})
 
 
   // res.sendFile(path.join(rootDir,"views","home.html"))

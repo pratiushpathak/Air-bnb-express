@@ -8,7 +8,7 @@ const rootDir=require("../utils/pathutil");
 
 hostRouter.get("/add-home",(req,res,next)=>{
 
-   res.render('addhome',{pageTitle:'Add Home to Airbnb'})
+   res.render('addhome',{pageTitle:'Add Home to Airbnb',currentpage:'addhome'})
   // res.sendFile(path.join(rootDir,"views","addhome.html"))
     
 })
@@ -28,7 +28,7 @@ hostRouter.post("/add-home",(req,res,next)=>{
 
 
 
-   res.render('homeadded',{pageTitle:'Home added succesfully'})
+   res.render('homeadded',{pageTitle:'Home added succesfully',currentpage:'homeadded'})
   //  res.sendFile(path.join(rootDir,"views","homeadded.html"))
     
 })
