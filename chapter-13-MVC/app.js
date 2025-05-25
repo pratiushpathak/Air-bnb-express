@@ -3,6 +3,7 @@ const path=require('path')
 
 // external module
 const express = require('express');
+  const homescontroller=require('./controllers/homes')
 
 // local module
 const userRouter=require('./routes/userrouter')
@@ -22,12 +23,7 @@ app.use("/host",hostRouter);
 
 app.use(express.static(path.join(rootDir,'public')))
 
-app.use((req,res,next)=>{
-  //using render for ejs file
-  res.status(404).render('404',{pageTitle:'page not found',currentpage:'404'})
-// res.sendFile(path.join(rootDir,'views','404.html'))
-})
-
+app.use(homescontroller.error)
 
 const port=3002;
 app.listen(port,()=>{

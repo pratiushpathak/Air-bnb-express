@@ -29,5 +29,11 @@ exports.gethomes=(req,res,next)=>{
 
   // res.sendFile(path.join(rootDir,"views","home.html"))
 }
+exports.error=(req,res,next)=>{
+  //using render for ejs file
+  res.status(404).render('404',{pageTitle:'page not found',currentpage:'404'})
+// res.sendFile(path.join(rootDir,'views','404.html'))
+}
+
 
 
