@@ -1,0 +1,33 @@
+const registeredHomes=[];
+
+exports.getaddhome=(req,res,next)=>{
+
+   res.render('addhome',{pageTitle:'Add Home to Airbnb',currentpage:'addhome'})
+  // res.sendFile(path.join(rootDir,"views","addhome.html"))
+    
+}
+
+exports.postaddhome=(req,res,next)=>{
+  console.log("home registration succeful for :", req.body.housename,req.body)
+
+   registeredHomes.push(req.body);
+  // price.push()
+
+
+
+   res.render('homeadded',{pageTitle:'Home added succesfully',currentpage:'homeadded'})
+  //  res.sendFile(path.join(rootDir,"views","homeadded.html"))
+    
+}
+exports.gethomes=(req,res,next)=>{
+  console.log(registeredHomes);
+
+  // the variable we define renders here
+   res.render('home',{registeredHomes:registeredHomes,
+    pageTitle:'airbnb home',currentpage:'home'})
+
+
+  // res.sendFile(path.join(rootDir,"views","home.html"))
+}
+
+
