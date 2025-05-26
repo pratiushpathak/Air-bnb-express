@@ -1,3 +1,4 @@
+const { registeredHomes } = require("../../chapter-12-dynamic-ui-using EJS/routes/hostrouter");
 const Home=require("../models/home");
 
 exports.getaddhome=(req,res,next)=>{
@@ -23,12 +24,14 @@ exports.postaddhome=(req,res,next)=>{
     
 }
 exports.gethomes=(req,res,next)=>{
-  const registeredHomes=Home.fetchAll()
+  const registeredHomes=Home.fetchAll(registeredHomes=>{
+    res.render('home',{registeredHomes:registeredHomes,
+    pageTitle:'airbnb home',currentpage:'home'})
+  })
   // console.log(registeredHomes);
 
   // the variable we define renders here
-   res.render('home',{registeredHomes:registeredHomes,
-    pageTitle:'airbnb home',currentpage:'home'})
+   
 
 
   // res.sendFile(path.join(rootDir,"views","home.html"))
