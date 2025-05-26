@@ -20,7 +20,7 @@ module.exports= class Home{
   }
   save()
   {
-    fetchAll(registeredHomes=>{
+    Home.fetchAll(registeredHomes=>{
  registeredHomes.push(this);
     const homedatapath=path.join(rootDir,'data','homes.json')
     fs.writeFile(homedatapath,JSON.stringify(registeredHomes),error=>{
