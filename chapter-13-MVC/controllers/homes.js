@@ -9,9 +9,9 @@ exports.getaddhome=(req,res,next)=>{
 
 exports.postaddhome=(req,res,next)=>{
   // console.log("home registration succeful for :", req.body.housename,req.body)
-  const {housname,price,location,rating,photourl}=req.body
+  const {housename,price,location,rating,photourl}=req.body
 
- const home= new Home(housname,price,location,rating,photourl)
+ const home= new Home(housename,price,location,rating,photourl)
 
    home.save();
   // price.push()
