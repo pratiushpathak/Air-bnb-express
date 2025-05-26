@@ -5,7 +5,7 @@ const rootDir=require('../utils/pathutil');
 const { json } = require('stream/consumers');
 
 //fake database
-let registeredHomes=[];
+// let registeredHomes=[];
 
 module.exports= class Home{
 
@@ -31,16 +31,20 @@ module.exports= class Home{
      const homedatapath=path.join(rootDir,'data','homes.json')
      fs.readFile(homedatapath,(err,data)=>{
       console.log("file read",err,data)
-      if(err)
+      if(!err)
       {
-        registeredHomes=  json.parse(data);
+        callback( JSON.parse(data));
       }
-       callback(registeredHomes)
+      else
+      {
+   callback([])
+      }
+    
      
-     })
+     });
 
 
-    return registeredHomes;
+    
   }
 
 
