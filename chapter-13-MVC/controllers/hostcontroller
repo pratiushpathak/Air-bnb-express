@@ -8,6 +8,18 @@ exports.getaddhome=(req,res,next)=>{
   // res.sendFile(path.join(rootDir,"views","addhome.html"))
     
 }
+
+exports.gethosthomes=(req,res,next)=>{
+  const registeredHomes=Home.fetchAll(registeredHomes=>{
+    res.render('host/host-home-list',{registeredHomes:registeredHomes,
+    pageTitle:'HostHomelist',currentpage:'Host Homes'})
+  })
+}
+
+
+
+
+
 exports.getedithome=(req,res,next)=>
 {
   res.render('host/edit-home',{pageTitle:'edit-home',currentpage:'edithome'})

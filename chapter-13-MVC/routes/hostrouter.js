@@ -14,6 +14,7 @@ hostRouter.get("/add-home",hostcontroller.getaddhome)
 // const price=[];
 
 hostRouter.get("/edit-home",hostcontroller.getedithome)
+hostRouter.get("/host-home-list",hostcontroller.gethosthomes)
 
 
 hostRouter.post("/add-home",hostcontroller.postaddhome)

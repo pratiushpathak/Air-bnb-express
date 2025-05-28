@@ -12,10 +12,12 @@ const homescontroller=require('../controllers/storecontroller');
 
 
 
-storerouter.get("/",homescontroller.gethomes)
-
+storerouter.get("/",homescontroller.getindex)
+storerouter.get("/homes",homescontroller.gethomes)
 
 storerouter.get("/bookings",homescontroller.getbookings)
+
+storerouter.get("/favorites",homescontroller.getfavoritelist)
 
 
 module.exports=storerouter;

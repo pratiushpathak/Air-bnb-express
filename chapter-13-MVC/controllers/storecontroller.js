@@ -4,7 +4,7 @@ const Home=require("../models/home");
 exports.gethomes=(req,res,next)=>{
   const registeredHomes=Home.fetchAll(registeredHomes=>{
     res.render('store/homelist',{registeredHomes:registeredHomes,
-    pageTitle:'airbnb home',currentpage:'home'})
+    pageTitle:'Home list',currentpage:'home'})
   })
   // console.log(registeredHomes);
 
@@ -15,6 +15,14 @@ exports.gethomes=(req,res,next)=>{
   // res.sendFile(path.join(rootDir,"views","home.html"))
 }
 
+
+
+exports.getindex=(req,res,next)=>{
+  const registeredHomes=Home.fetchAll(registeredHomes=>{
+    res.render('store/index',{registeredHomes:registeredHomes,
+    pageTitle:'airbnb home',currentpage:'index'})
+  })
+}
 
 exports.getbookings=(req,res,next)=>{
   (
@@ -31,9 +39,10 @@ exports.error=(req,res,next)=>{
 
 
 exports.getfavoritelist=(req,res,next)=>{
-  (
-    res.render('store/bookings',{
-    pageTitle:'My favorites',currentpage:'favarorites'})
-  )
-
+  const registeredHomes=Home.fetchAll(registeredHomes=>{
+    res.render('store/favoritelist',{registeredHomes:registeredHomes,
+    pageTitle:'My favorites',currentpage:'favorites'})
+  })
 }
+
+
