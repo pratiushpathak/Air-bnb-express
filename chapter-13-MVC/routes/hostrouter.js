@@ -5,23 +5,24 @@ const express= require('express')
 const hostRouter=express.Router();
 // const rootDir=require("../utils/pathutil");
 
-const homescontroller=require('../controllers/homes');
+const hostcontroller=require('../controllers/hostcontroller');
 // const { registeredHomes } = require('../../chapter-12-dynamic-ui-using EJS/routes/hostrouter');
 
-hostRouter.get("/add-home",homescontroller.getaddhome)
+hostRouter.get("/add-home",hostcontroller.getaddhome)
 
 
 // const price=[];
 
+hostRouter.get("/edit-home",hostcontroller.getedithome)
 
 
+hostRouter.post("/add-home",hostcontroller.postaddhome)
 
-hostRouter.post("/add-home",homescontroller.postaddhome)
   
 
  
 
-exports.hostRouter=hostRouter;
+module.exports=hostRouter;
 
 
 // exports.price=price;

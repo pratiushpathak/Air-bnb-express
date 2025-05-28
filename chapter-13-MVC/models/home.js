@@ -33,7 +33,7 @@ module.exports= class Home{
   {
      const homedatapath=path.join(rootDir,'data','homes.json')
      fs.readFile(homedatapath,(err,data)=>{
-      console.log("file read",err,data)
+      // console.log("file read",err,data)
       if(!err)
       {
         callback( JSON.parse(data));

@@ -1,0 +1,42 @@
+
+// const { registeredHomes } = require("../../chapter-12-dynamic-ui-using EJS/routes/hostrouter");
+const Home=require("../models/home");
+
+exports.getaddhome=(req,res,next)=>{
+
+   res.render('host/addhome',{pageTitle:'Add Home to Airbnb',currentpage:'addhome'})
+  // res.sendFile(path.join(rootDir,"views","addhome.html"))
+    
+}
+exports.getedithome=(req,res,next)=>
+{
+  res.render('host/edit-home',{pageTitle:'edit-home',currentpage:'edithome'})
+
+}
+
+exports.postaddhome=(req,res,next)=>{
+  // console.log("home registration succeful for :", req.body.housename,req.body)
+  const {housename,price,location,rating,photourl}=req.body
+
+ const home= new Home(housename,price,location,rating,photourl)
+
+   home.save();
+  // price.push()
+
+
+
+   res.render('host/homeadded',{pageTitle:'Home added succesfully',currentpage:'homeadded'})
+  //  res.sendFile(path.join(rootDir,"views","homeadded.html"))
+    
+}
+
+
+
+
+
+
+
+
+
+
+
