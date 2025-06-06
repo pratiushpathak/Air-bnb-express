@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body class="bg-gray-100 font-sans text-gray-800">
+    <%- include('../partials/header') %>
+
+    <main class="container mx-auto px-4 py-10 max-w-4xl">
+      <h1 class="text-3xl font-bold text-center mb-8 text-red-600">
+        🏡 My Bookings
+      </h1>
+
+      <div class="grid gap-6">
+        <% const bookings = [
+          { houseName: "Oceanview Villa", location: "Goa", date: "2025-06-12", nights: 3, price: 450 },
+          { houseName: "Mountain Retreat", location: "Manali", date: "2025-07-01", nights: 2, price: 320 },
+          { houseName: "City Loft", location: "Mumbai", date: "2025-08-15", nights: 4, price: 680 }
+        ]; %>
+
+        <% bookings.forEach(booking => { %>
+          <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-red-500">
+            <h2 class="text-xl font-semibold mb-2"><%= booking.houseName %></h2>
+            <p class="text-gray-600"><strong>Location:</strong> <%= booking.location %></p>
+            <p class="text-gray-600"><strong>Booking Date:</strong> <%= booking.date %></p>
+            <p class="text-gray-600"><strong>Nights:</strong> <%= booking.nights %></p>
+            <p class="text-gray-700 font-bold mt-2">Total: $<%= booking.price %></p>
+            <button class="mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition">
+              Cancel Booking
+            </button>
+          </div>
+        <% }) %>
+      </div>
+    </main>
+  </body>
+</html>
