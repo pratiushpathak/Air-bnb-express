@@ -49,10 +49,15 @@ exports.getfavoritelist=(req,res,next)=>{
 exports.gethomedetails=(req,res,next)=>{
   const homeid=req.params.homeid;
   console.log("at home detail page",homeid);
+  Home.findbyid(homeid,home=>{
+console.log("home details found",home);
 
 
   res.render('store/home-detail',{
     pageTitle:'home deatail',currentpage:'home'})
+  })
+
+
 
       
 }
