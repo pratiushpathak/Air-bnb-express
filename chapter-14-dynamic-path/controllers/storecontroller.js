@@ -46,3 +46,18 @@ exports.getfavoritelist=(req,res,next)=>{
 }
 
 
+exports.gethomedetails=(req,res,next)=>{
+  const homeid=req.params.homeid;
+  console.log("at home detail page",homeid);
+
+
+  res.render('store/home-detail',{
+    pageTitle:'home deatail',currentpage:'home'})
+
+      
+}
+
+
+
+
+

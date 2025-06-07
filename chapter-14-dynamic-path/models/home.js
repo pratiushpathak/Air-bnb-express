@@ -6,6 +6,7 @@ const { json } = require('stream/consumers');
 
 //fake database
 // let registeredHomes=[];
+const homedatapath=path.join(rootDir,'data','homes.json')
 
 module.exports= class Home{
 
@@ -20,6 +21,7 @@ module.exports= class Home{
   }
   save()
   {
+    this.id = Math.random().toString();
     Home.fetchAll(registeredHomes=>{
  registeredHomes.push(this);
     const homedatapath=path.join(rootDir,'data','homes.json')
@@ -31,7 +33,7 @@ module.exports= class Home{
   }
   static fetchAll(callback)
   {
-     const homedatapath=path.join(rootDir,'data','homes.json')
+     
      fs.readFile(homedatapath,(err,data)=>{
       // console.log("file read",err,data)
       if(!err)
@@ -50,5 +52,12 @@ module.exports= class Home{
     
   }
 
+ static findbyid(homeid,callback)
+ {
+ this.fetchAll(homes=>{
+ const homefound= homes.find(home=> home.id=== homeid);
+ callback(homefound)
+ })
+ }
 
 }

@@ -19,5 +19,7 @@ storerouter.get("/bookings",homescontroller.getbookings)
 
 storerouter.get("/favorites",homescontroller.getfavoritelist)
 
+storerouter.get("/homes/:homeid",homescontroller.gethomedetails)
+
 
 module.exports=storerouter;
