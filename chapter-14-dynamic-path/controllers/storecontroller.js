@@ -45,6 +45,11 @@ exports.getfavoritelist=(req,res,next)=>{
   })
 }
 
+exports.postaddtofavorites=(req,res,next)=>{
+console.log("came to add to favorite",req.body)
+res.redirect("/favorites");
+}
+
 
 exports.gethomedetails=(req,res,next)=>{
   const homeid=req.params.homeid;
