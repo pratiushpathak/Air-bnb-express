@@ -1,5 +1,6 @@
 // const { registeredHomes } = require("../../chapter-12-dynamic-ui-using EJS/routes/hostrouter");
 const Home=require("../models/home");
+const Favorite=require("../models/favorite");
 
 exports.gethomes=(req,res,next)=>{
   const registeredHomes=Home.fetchAll(registeredHomes=>{
@@ -47,7 +48,14 @@ exports.getfavoritelist=(req,res,next)=>{
 
 exports.postaddtofavorites=(req,res,next)=>{
 console.log("came to add to favorite",req.body)
-res.redirect("/favorites");
+Favorite.addtofavorite(req.body.id,error=>{
+  if(error)
+  {
+    console.log("error while marking favorite")
+  }
+  res.redirect("/favorites");
+})
+
 }
 
 
