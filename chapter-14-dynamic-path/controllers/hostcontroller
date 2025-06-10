@@ -4,7 +4,7 @@ const Home=require("../models/home");
 
 exports.getaddhome=(req,res,next)=>{
 
-   res.render('host/addhome',{pageTitle:'Add Home to Airbnb',currentpage:'addhome'})
+   res.render('host/edit-home',{pageTitle:'Add Home to Airbnb',currentpage:'addhome'})
   // res.sendFile(path.join(rootDir,"views","addhome.html"))
     
 }
@@ -22,7 +22,11 @@ exports.gethosthomes=(req,res,next)=>{
 
 exports.getedithome=(req,res,next)=>
 {
-  res.render('host/edit-home',{pageTitle:'edit-home',currentpage:'edithome'})
+  const homeid=req.params.homeid;
+  const editing=req.query.editing;
+  console.log(homeid,editing);
+
+  res.render('host/edit-home',{pageTitle:'edit your home',currentpage:'HostHomes'})
 
 }
 

@@ -40,10 +40,18 @@ exports.error=(req,res,next)=>{
 
 
 exports.getfavoritelist=(req,res,next)=>{
+  Favorite.getfavorites(favorites=>{
+
+ 
   const registeredHomes=Home.fetchAll(registeredHomes=>{
-    res.render('store/favoritelist',{registeredHomes:registeredHomes,
+ 
+   const favoritehomes= registeredHomes.filter(home=> favorites.includes(home.id))
+
+
+    res.render('store/favoritelist',{favoritehomes:favoritehomes,
     pageTitle:'My favorites',currentpage:'favorites'})
   })
+   })
 }
 
 exports.postaddtofavorites=(req,res,next)=>{

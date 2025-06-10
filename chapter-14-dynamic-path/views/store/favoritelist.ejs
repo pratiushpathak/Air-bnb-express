@@ -10,9 +10,9 @@
     Here are your favorites :
   </h2>
 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-  <% registeredHomes.forEach((home) => { %>
+  <% favoritehomes.forEach((home) => { %>
     <li class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 transition hover:shadow-xl">
-      <img src="<%= home.image %>" alt="<%= home.housename %>" class="w-full h-48 object-cover" />
+      <img src="<%= home.photoUrl %>" alt="<%= home.housename %>" class="w-full h-48 object-cover" />
       
       <div class="p-5 space-y-2">
         <h3 class="text-xl font-semibold text-gray-800">
@@ -28,9 +28,9 @@
           ⭐ Rating: <%= home.rating %>/5
         </p>
         
-         <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300">
+         <!-- <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300">
               Book
-            </button>
+            </button> -->
 
       </div>
     </li>
