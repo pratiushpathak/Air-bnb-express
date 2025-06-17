@@ -21,10 +21,22 @@ module.exports= class Home{
   }
   save()
   {
-    this.id = Math.random().toString();
+    
+    
     Home.fetchAll(registeredHomes=>{
- registeredHomes.push(this);
-    const homedatapath=path.join(rootDir,'data','homes.json')
+
+      if(this.id)
+    {//this is edit home case 
+    registeredHomes=registeredHomes.map(home=>
+       home.id=this.id ? this : home)
+    }
+    else
+    { //this is add home case
+      this.id = Math.random().toString();
+      registeredHomes.push(this);
+    }
+ 
+  
     fs.writeFile(homedatapath,JSON.stringify(registeredHomes),error=>{
       console.log("File writing",error)
     })

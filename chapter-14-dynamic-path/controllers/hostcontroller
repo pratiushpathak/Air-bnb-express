@@ -50,11 +50,25 @@ exports.postaddhome=(req,res,next)=>{
 
 
 
-   res.render('host/homeadded',{pageTitle:'Home added succesfully',currentpage:'homeadded'})
-  //  res.sendFile(path.join(rootDir,"views","homeadded.html"))
+  res.redirect("/host/host-home-list")
     
 }
 
+exports.postedithome=(req,res,next)=>{
+  // console.log("home registration succeful for :", req.body.housename,req.body)
+  const {id,housename,price,location,rating,photourl}=req.body
+
+ const home= new Home(housename,price,location,rating,photourl)
+ home.id=id;
+   home.save();
+  // price.push()
+
+
+
+   res.redirect("/host/host-home-list")
+  //  res.sendFile(path.join(rootDir,"views","homeadded.html"))
+    
+}
 
 
 
