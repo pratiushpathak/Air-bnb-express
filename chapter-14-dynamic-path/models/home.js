@@ -17,23 +17,27 @@ module.exports= class Home{
     this.location=location;
     this.rating=rating;
     this.photourl=photourl;
+
     
   }
   save()
   {
     
-    
+
     Home.fetchAll(registeredHomes=>{
 
       if(this.id)
     {//this is edit home case 
     registeredHomes=registeredHomes.map(home=>
-       home.id=this.id ? this : home)
+       home.id===this.id ? this : home)
+        console.log("homeadded")
+
     }
     else
     { //this is add home case
       this.id = Math.random().toString();
       registeredHomes.push(this);
+     
     }
  
   

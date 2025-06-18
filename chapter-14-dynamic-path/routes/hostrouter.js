@@ -21,6 +21,7 @@ hostRouter.post("/add-home",hostcontroller.postaddhome)
 hostRouter.get("/edit-home/:homeid",hostcontroller.getedithome)
 
   hostRouter.post("/edit-home",hostcontroller.postedithome);
+hostRouter.post('/delete-home/:homeid', hostcontroller.postdeletehome);
 
  
 
