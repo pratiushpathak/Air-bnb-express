@@ -1,3 +1,4 @@
+// import { error } from "./storecontroller";
 
 // const { registeredHomes } = require("../../chapter-12-dynamic-ui-using EJS/routes/hostrouter");
 const Home=require("../models/home");
@@ -75,9 +76,15 @@ exports.postdeletehome=(req,res,next)=>{
  const homeid=req.params.homeid;
  console.log("came to delete home id ",homeid)
 
-
-
-  res.redirect("/host/host-home-list")
+Home.deletebyid(homeid,error=>{
+  if(error)
+  {
+    console.log("error while",error)
+  }
+  
+})
+//  res.redirect("/host/host-home-list")
+ 
     
 }
 

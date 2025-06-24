@@ -29,7 +29,7 @@ module.exports= class Home{
       if(this.id)
     {//this is edit home case 
     registeredHomes=registeredHomes.map(home=>
-       home.id===this.id ? this : home)
+       home.id===this.id ? this : home);
         console.log("homeadded")
 
     }
@@ -75,5 +75,14 @@ module.exports= class Home{
  callback(homefound)
  })
  }
+ 
+ static deletebyid(homeid,callback)
+ {
+ this.fetchAll(homes=>{
+ homes= homes.filter(home=> home.id  !== homeid);
+fs.writeFile(homedatapath,JSON.stringify(homes),callback);
+ })
+ }
+
 
 }
