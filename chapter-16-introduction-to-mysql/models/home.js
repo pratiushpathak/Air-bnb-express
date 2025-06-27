@@ -13,7 +13,8 @@ module.exports = class Home {
   }
 
   save() {
-     return db.execute [`INSERT INTO homes(houseName, price, location, rating, photoUrl,discription) VALUES('${this.houseName}',${this.price},'${this.location}',${this.rating},'${this.photoUrl}','${this.discription}')`]
+   
+     return db.execute (`INSERT INTO homes(houseName, price, location, rating, photoUrl,discription) VALUES('${this.houseName}',${this.price},'${this.location}',${this.rating},'${this.photoUrl}','${this.discription}')`)
   }
 
   static fetchAll() {

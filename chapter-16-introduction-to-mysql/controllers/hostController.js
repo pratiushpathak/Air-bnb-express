@@ -42,6 +42,7 @@ exports.postAddHome = (req, res, next) => {
   const { houseName, price, location, rating, photoUrl,discription } = req.body;
   const home = new Home(houseName, price, location, rating, photoUrl,discription);
   home.save();
+ 
 
   res.redirect("/host/host-home-list");
 };
