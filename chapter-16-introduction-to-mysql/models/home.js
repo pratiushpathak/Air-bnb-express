@@ -13,8 +13,18 @@ module.exports = class Home {
   }
 
   save() {
+    if(this.id)//update case
+    {
+      return db.execute ('UPDATE homes SET houseName=?, price=?, location=?, rating=?, photoUrl=?,discription=? WHERE id=?',[this.houseName,this.price,this.location,this.rating,this.photoUrl,this.discription,this.id])
+
+    }
+    else//insert
+    {
+      return db.execute ('INSERT INTO homes(houseName, price, location, rating, photoUrl,discription) VALUES(?,?,?,?,?,?)',[this.houseName,this.price,this.location,this.rating,this.photoUrl,this.discription])
+
+    }
    
-     return db.execute ('INSERT INTO homes(houseName, price, location, rating, photoUrl,discription) VALUES(?,?,?,?,?,?)',[this.houseName,this.price,this.location,this.rating,this.photoUrl,this.discription])
+     
   }
 
   static fetchAll() {
