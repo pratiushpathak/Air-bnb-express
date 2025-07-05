@@ -5,14 +5,27 @@ const MongoClient=mongo.MongoClient;
 
 const MONGO_URL="mongodb+srv://root:root@completecoding.lur5pqj.mongodb.net/?retryWrites=true&w=majority&appName=CompleteCoding";
 
+let _db;
+
 const mongoConnect=(callback)=>{
   MongoClient.connect(MONGO_URL).then(client=>{
 
   console.log(client);
-  callback( client);
+  callback( );
+  _db=client.db('airbnb');
 }).catch(err=>{
-  console.log("error while connenecting",error)
+  console.log("error while connenecting",err)
 });
 
 }
-module.exports=mongoConnect;
+
+const getDB= ()=>{
+  if(!_db)
+  {
+    throw new Error('MONGO not connected')
+  }
+  return _db;
+}
+
+exports.mongoConnect=mongoConnect;
+exports.getDB=getDB;
